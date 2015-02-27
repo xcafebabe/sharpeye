@@ -18,7 +18,8 @@ module.exports = function (grunt) {
   // Configurable paths for the application
   var appConfig = {
     app: require('./bower.json').appPath || 'app',
-    dist: 'dist'
+    dist: 'dist',
+    tmp: '.tmp'
   };
 
   // Define the configuration for all the tasks
@@ -32,6 +33,10 @@ module.exports = function (grunt) {
       bower: {
         files: ['bower.json'],
         tasks: ['wiredep']
+      },
+      less: {
+        files: ['<%= yeoman.app %>/styles/{,*/}*.less'],
+        tasks: ['less']
       },
       js: {
         files: ['<%= yeoman.app %>/scripts/{,*/}*.js'],
@@ -184,8 +189,6 @@ module.exports = function (grunt) {
       }
     },
 
-
-
     // Renames files for browser caching purposes
     filerev: {
       dist: {
@@ -194,6 +197,20 @@ module.exports = function (grunt) {
           '<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
           '<%= yeoman.dist %>/styles/fonts/*'
         ]
+      }
+    },
+
+    less: {
+      dist: {
+        files: {
+          '<%= yeoman.tmp %>/styles/main.css': ['<%= yeoman.app %>/styles/main.less']
+        },
+        options: {
+          sourceMap: true,
+          sourceMapFilename: '<%= yeoman.tmp %>/styles/main.css.map',
+          sourceMapBasepath: '<%= yeoman.tmp %>/',
+          sourceMapRootpath: '/'
+        }
       }
     },
 
@@ -339,9 +356,16 @@ module.exports = function (grunt) {
           src: ['generated/*']
         }, {
           expand: true,
-          cwd: 'bower_components/bootstrap/dist',
-          src: 'fonts/*',
-          dest: '<%= yeoman.dist %>'
+          dot: true,
+          cwd: 'bower_components/bootstrap/dist/fonts/',
+          dest: '<%= yeoman.dist %>/fonts/glyphicons',
+          src: ['*']
+        }, {
+          expand: true,
+          dot: true,
+          cwd: 'bower_components/font-awesome/fonts/',
+          dest: '<%= yeoman.dist %>/fonts/font-awesome',
+          src: ['*']
         }]
       },
       styles: {
@@ -349,18 +373,37 @@ module.exports = function (grunt) {
         cwd: '<%= yeoman.app %>/styles',
         dest: '.tmp/styles/',
         src: '{,*/}*.css'
+      },
+      fonts: {
+        files : [{
+          expand: true,
+          dot: true,
+          cwd: 'bower_components/font-awesome/fonts/',
+          dest: '<%= yeoman.tmp %>/fonts/font-awesome',
+          src: ['*']
+        }, {
+          expand: true,
+          dot: true,
+          cwd: 'bower_components/bootstrap/dist/fonts/',
+          dest: '<%= yeoman.tmp %>/fonts/glyphicons',
+          src: ['*']
+        }]
       }
     },
 
     // Run some tasks in parallel to speed up the build process
     concurrent: {
       server: [
-        'copy:styles'
+        'less',
+        'copy:styles',
+        'copy:fonts'
       ],
       test: [
+        'less',
         'copy:styles'
       ],
       dist: [
+        'less',
         'copy:styles',
         'imagemin',
         'svgmin'
