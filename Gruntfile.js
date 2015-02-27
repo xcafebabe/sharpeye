@@ -485,7 +485,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('test', [
     'clean:server',
-    'bower:app',
+    //'bower:app',
     'replace:test',
     'wiredep',
     'concurrent:test',
@@ -497,7 +497,7 @@ module.exports = function (grunt) {
   grunt.registerTask('build', [
     'clean:dist',
     'wiredep',
-    'bower:app',
+    //'bower:app',
     'replace:test',
     'useminPrepare',
     'concurrent:dist',

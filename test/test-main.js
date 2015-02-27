@@ -13,8 +13,16 @@ requirejs.config({
     baseUrl: '/base/app/scripts',
 
     paths: {
-
-    },
+    'angular' : '../../bower_components/angular/angular',
+    'angular-cookies' : '../../bower_components/angular-cookies/angular-cookies',
+    'angular-route' : '../../bower_components/angular-route/angular-route',
+    'angular-sanitize' : '../../bower_components/angular-sanitize/angular-sanitize',
+    'angular-resource' : '../../bower_components/angular-resource/angular-resource',
+    'angular-animate' : '../../bower_components/angular-animate/angular-animate',
+    'angular-touch' : '../../bower_components/angular-touch/angular-touch',
+    'angular-mock' : '../../bower_components/angular-mocks/angular-mocks',
+    'angular-messages' : '../../bower_components/angular-messages/angular-messages',
+  },
 
     shim: {
         'angular' : {'exports' : 'angular'},

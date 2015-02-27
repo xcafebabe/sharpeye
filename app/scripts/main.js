@@ -1,15 +1,15 @@
 /*jshint unused: vars */
 require.config({
   paths: {
-    'angular' : '../bower_components/angular/angular',
-    'angular-cookies' : '../bower_components/angular-cookies/angular-cookies.min',
-    'angular-route' : '../bower_components/angular-route/angular-route.min',
-    'angular-sanitize' : '../bower_components/angular-sanitize/angular-sanitize.min',
-    'angular-resource' : '../bower_components/angular-resource/angular-resource.min',
-    'angular-animate' : '../bower_components/angular-animate/angular-animate.min',
-    'angular-touch' : '../bower_components/angular-touch/angular-touch.min',
-    'angular-mock' : '../bower_components/angular-mock/angular-mock.min',
-    'angular-messages' : '../bower_components/angular-messages/angular-messages.min',
+    'angular' : '../../bower_components/angular/angular',
+    'angular-cookies' : '../../bower_components/angular-cookies/angular-cookies',
+    'angular-route' : '../../bower_components/angular-route/angular-route',
+    'angular-sanitize' : '../../bower_components/angular-sanitize/angular-sanitize',
+    'angular-resource' : '../../bower_components/angular-resource/angular-resource',
+    'angular-animate' : '../../bower_components/angular-animate/angular-animate',
+    'angular-touch' : '../../bower_components/angular-touch/angular-touch',
+    'angular-mock' : '../../bower_components/angular-mocks/angular-mocks',
+    'angular-messages' : '../../bower_components/angular-messages/angular-messages',
   },
   shim: {
     'angular' : {'exports' : 'angular'},
