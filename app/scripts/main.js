@@ -10,6 +10,8 @@ require.config({
     'angular-touch' : '../../bower_components/angular-touch/angular-touch',
     'angular-mock' : '../../bower_components/angular-mocks/angular-mocks',
     'angular-messages' : '../../bower_components/angular-messages/angular-messages',
+    'bootstrap' : '../../bower_components/bootstrap/dist/js/bootstrap',
+    'jquery' : '../../bower_components/jquery/dist/jquery'
   },
   shim: {
     'angular' : {'exports' : 'angular'},
@@ -20,12 +22,15 @@ require.config({
     'angular-animate': ['angular'],
     'angular-touch': ['angular'],
     'angular-messages' : ['angular'],
+    'bootstrap' : ['jquery'],
     'angular-mocks': {
       deps:['angular'],
       'exports':'angular.mock'
     }
   },
   priority: [
+    'jquery',
+    'bootstrap',
     'angular'
   ]
 });
@@ -42,8 +47,9 @@ require([
   'angular-resource',
   'angular-animate',
   'angular-touch',
-  'angular-messages'
-], function(angular, app, ngRoutes, ngCookies, ngSanitize, ngResource, ngAnimate, ngTouch, ngMessages) {
+  'angular-messages',
+  'bootstrap'
+], function(angular, app) {
   'use strict';
   /* jshint ignore:start */
   var $html = angular.element(document.getElementsByTagName('html')[0]);
