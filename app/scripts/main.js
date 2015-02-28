@@ -10,6 +10,8 @@ require.config({
     'angular-touch' : '../../bower_components/angular-touch/angular-touch',
     'angular-mock' : '../../bower_components/angular-mocks/angular-mocks',
     'angular-messages' : '../../bower_components/angular-messages/angular-messages',
+    'angular-google-maps' : '../../bower_components/angular-google-maps/dist/angular-google-maps',                                  
+    'lodash' : '../../bower_components/lodash/dist/lodash',
     'bootstrap' : '../../bower_components/bootstrap/dist/js/bootstrap',
     'jquery' : '../../bower_components/jquery/dist/jquery'
   },
@@ -23,6 +25,7 @@ require.config({
     'angular-touch': ['angular'],
     'angular-messages' : ['angular'],
     'bootstrap' : ['jquery'],
+    'angular-google-maps' : ['angular','lodash'],
     'angular-mocks': {
       deps:['angular'],
       'exports':'angular.mock'
@@ -47,7 +50,8 @@ require([
   'angular-resource',
   'angular-animate',
   'angular-touch',
-  'angular-messages',  
+  'angular-messages',
+  'angular-google-maps',
   'bootstrap'
 ], function(angular, app) {
   'use strict';

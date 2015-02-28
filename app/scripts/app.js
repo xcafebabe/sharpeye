@@ -20,12 +20,13 @@ define(['angular', 'controllers/main', 'controllers/about']/*deps*/, function (a
     'ngSanitize',
     'ui.router',
     'ngAnimate',
-    'ngTouch'
+    'ngTouch',
+    'uiGmapgoogle-maps'
   ])
     .config(function ($stateProvider, $urlRouterProvider) {
 
       $urlRouterProvider.otherwise('/');
-      
+
       $stateProvider
         .state('main', {
           url: '/',
