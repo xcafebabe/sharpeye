@@ -3,7 +3,7 @@ require.config({
   paths: {
     'angular' : '../../bower_components/angular/angular',
     'angular-cookies' : '../../bower_components/angular-cookies/angular-cookies',
-    'angular-route' : '../../bower_components/angular-route/angular-route',
+    'angular-ui-router' : '../../bower_components/angular-ui-router/release/angular-ui-router',
     'angular-sanitize' : '../../bower_components/angular-sanitize/angular-sanitize',
     'angular-resource' : '../../bower_components/angular-resource/angular-resource',
     'angular-animate' : '../../bower_components/angular-animate/angular-animate',
@@ -15,7 +15,7 @@ require.config({
   },
   shim: {
     'angular' : {'exports' : 'angular'},
-    'angular-route' : ['angular'],
+    'angular-ui-router' : ['angular'],
     'angular-cookies': ['angular'],
     'angular-sanitize': ['angular'],
     'angular-resource': ['angular'],
@@ -41,13 +41,13 @@ window.name = 'NG_DEFER_BOOTSTRAP!';
 require([
   'angular',
   'app',
-  'angular-route',
+  'angular-ui-router',
   'angular-cookies',
   'angular-sanitize',
   'angular-resource',
   'angular-animate',
   'angular-touch',
-  'angular-messages',
+  'angular-messages',  
   'bootstrap'
 ], function(angular, app) {
   'use strict';

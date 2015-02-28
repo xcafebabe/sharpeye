@@ -18,22 +18,24 @@ define(['angular', 'controllers/main', 'controllers/about']/*deps*/, function (a
     'ngMessages',
     'ngResource',
     'ngSanitize',
-    'ngRoute',
+    'ui.router',
     'ngAnimate',
     'ngTouch'
   ])
-    .config(function ($routeProvider) {
-      $routeProvider
-        .when('/', {
+    .config(function ($stateProvider, $urlRouterProvider) {
+
+      $urlRouterProvider.otherwise('/');
+      
+      $stateProvider
+        .state('main', {
+          url: '/',
           templateUrl: 'views/main.html',
           controller: 'MainCtrl'
         })
-        .when('/about', {
+        .state('about', {
+          url: '/about',
           templateUrl: 'views/about.html',
           controller: 'AboutCtrl'
-        })
-        .otherwise({
-          redirectTo: '/'
         });
     });
 });
