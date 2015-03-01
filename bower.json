@@ -15,7 +15,8 @@
     "font-awesome": "^4.3.0",
     "modernizr": "^2.8.0",
     "requirejs": "^2.1.0",
-    "domReady": "^2.0.0",    
+    "domReady": "^2.0.0",
+    "text": "^2.0.0",
     "jquery": "^2.1.0",
     "lodash" : "^2.4.0"
   },

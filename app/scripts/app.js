@@ -1,5 +1,9 @@
 /*jshint unused: vars */
-define(['angular', 'controllers/main', 'controllers/about']/*deps*/, function (angular, MainCtrl, AboutCtrl)/*invoke*/ {
+define(['angular',
+'text!settings.json',
+'controllers/main',
+'controllers/about'],
+ function (angular, Settings, MainCtrl, AboutCtrl)/*invoke*/ {
   'use strict';
 
   /**
@@ -10,6 +14,13 @@ define(['angular', 'controllers/main', 'controllers/about']/*deps*/, function (a
    *
    * Main module of the application.
    */
+
+  if (!Settings){
+   throw '**NOTE** - You must provide a settings.json file';
+  }else {    
+   Settings = JSON.parse(Settings);
+  }
+
   return angular
     .module('sharpeyeApp', ['sharpeyeApp.controllers.MainCtrl',
 'sharpeyeApp.controllers.AboutCtrl',
@@ -23,7 +34,11 @@ define(['angular', 'controllers/main', 'controllers/about']/*deps*/, function (a
     'ngTouch',
     'uiGmapgoogle-maps'
   ])
-    .config(function ($stateProvider, $urlRouterProvider) {
+    .config([
+      '$stateProvider',
+      '$urlRouterProvider',
+      'uiGmapGoogleMapApiProvider',
+      function ($stateProvider, $urlRouterProvider, $maps) {
 
       $urlRouterProvider.otherwise('/');
 
@@ -38,5 +53,11 @@ define(['angular', 'controllers/main', 'controllers/about']/*deps*/, function (a
           templateUrl: 'views/about.html',
           controller: 'AboutCtrl'
         });
-    });
+
+      $maps.configure({
+        key: Settings.googleMapsKey,
+        v: '3.18',
+        libraries: 'places'
+      });
+    }]);
 });
