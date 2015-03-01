@@ -72,12 +72,31 @@ body {
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
 
+  html, body, .container-fluid, .container-fluid > div {
+    height: 100%;
+  }
+
   .se-container {
-    margin-top: 62px;
+    display: table;
+    height: 100%;
+    padding-top: 62px;
+    width: 100%;
+
+    .se-row {
+      display: table-row;
+
+      .se-column {
+        float: none;
+        display: table-cell;
+      }
+    }
+
   }
 
   .angular-google-map-container  {
-    height: 400px;
+    height: 100%;
+    width: 100%;
+    position: absolute;
   }
 
   .container {
