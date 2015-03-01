@@ -1,10 +1,17 @@
 <div class="se-container">
   <div class="row se-row">
-    <div class="col-xs-4 se-column" id="left">
-        Dios eres un ladron, me has robado todo. {{ map.zoom }}
+    <div class="col-xs-4 se-column left" id="left">
+      <ul class="nav nav-tabs" role="tablist" id="sharpEyeTabs">
+        <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab" id="homeTab"><i class="fa fa-cog"></i> Settings</a></li>
+        <li role="presentation"><a href="#result" aria-controls="result" role="tab" data-toggle="tab" id="resultTab">Result</a></li>
+      </ul>
 
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="home">Add config form</div>
+        <div role="tabpanel" class="tab-pane" id="result">No results :(</div>
+      </div>
     </div>
-    <div class="col-xs-8 se-column">
+    <div class="col-xs-8 se-column right">
       <ui-gmap-google-map center='map.center' zoom='map.zoom'></ui-gmap-google-map>
     </div>
   </div>
