@@ -10,10 +10,11 @@ require.config({
     'angular-touch' : '../../bower_components/angular-touch/angular-touch',
     'angular-mock' : '../../bower_components/angular-mocks/angular-mocks',
     'angular-messages' : '../../bower_components/angular-messages/angular-messages',
-    'angular-google-maps' : '../../bower_components/angular-google-maps/dist/angular-google-maps',                                  
+    'angular-google-maps' : '../../bower_components/angular-google-maps/dist/angular-google-maps',
     'lodash' : '../../bower_components/lodash/dist/lodash',
     'bootstrap' : '../../bower_components/bootstrap/dist/js/bootstrap',
-    'jquery' : '../../bower_components/jquery/dist/jquery'
+    'jquery' : '../../bower_components/jquery/dist/jquery',
+    'domReady' : '../../bower_components/domReady/domReady'
   },
   shim: {
     'angular' : {'exports' : 'angular'},
@@ -44,6 +45,7 @@ window.name = 'NG_DEFER_BOOTSTRAP!';
 require([
   'angular',
   'app',
+  'domReady!',
   'angular-ui-router',
   'angular-cookies',
   'angular-sanitize',
@@ -53,7 +55,7 @@ require([
   'angular-messages',
   'angular-google-maps',
   'bootstrap'
-], function(angular, app) {
+], function(angular, app, domReady) {
   'use strict';
   /* jshint ignore:start */
   var $html = angular.element(document.getElementsByTagName('html')[0]);
