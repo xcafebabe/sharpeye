@@ -17,7 +17,7 @@ define(['angular',
 
   if (!Settings){
    throw '**NOTE** - You must provide a settings.json file';
-  }else {    
+  }else {
    Settings = JSON.parse(Settings);
   }
 
@@ -59,5 +59,10 @@ define(['angular',
         v: '3.18',
         libraries: 'places'
       });
+    }])
+
+    .run(['$templateCache', function ($templateCache) {
+      $templateCache.put('searchbox.tpl.html', '<input id="pac-input" class="pac-controls" type="text" placeholder="Search">');
+      $templateCache.put('window.tpl.html', '<div ng-controller="WindowCtrl" ng-init="showPlaceDetails(parameter)">{{place.name}}</div>');
     }]);
 });
