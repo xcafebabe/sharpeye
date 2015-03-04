@@ -47,16 +47,8 @@ require([
   'angular',
   'app',
   'domReady!',
-  'angular-ui-router',
-  'angular-cookies',
-  'angular-sanitize',
-  'angular-resource',
-  'angular-animate',
-  'angular-touch',
-  'angular-messages',
-  'angular-google-maps',
-  'bootstrap'
-], function(angular, app, domReady) {
+],
+function(angular, app, domReady) {
   'use strict';
   /* jshint ignore:start */
   var $html = angular.element(document.getElementsByTagName('html')[0]);

@@ -1,15 +1,14 @@
-define(['angular','jquery'], function (angular,$) {
+define([
+  'angular',
+  'jquery',
+  'search/module',
+  'angular-google-maps',
+  'bootstrap'
+],
+function (angular,$, SearchModule) {
   'use strict';
 
-  /**
-   * @ngdoc function
-   * @name sharpeyeApp.controller:MainCtrl
-   * @description
-   * # MainCtrl
-   * Controller of the sharpeyeApp
-   */
-  angular.module('sharpeyeApp.controllers.MainCtrl', [])
-    .controller('MainCtrl',
+  SearchModule.controller('MainController',
     [
       '$scope',
       '$log',
@@ -19,7 +18,6 @@ define(['angular','jquery'], function (angular,$) {
           selected: {
             options: {
               visible:false
-
             },
             templateurl:'window.tpl.html',
             templateparameter: {}
@@ -135,14 +133,16 @@ define(['angular','jquery'], function (angular,$) {
             }
           };
           $scope.searchbox.options.bounds = new google.maps.LatLngBounds($scope.defaultBounds.getNorthEast(), $scope.defaultBounds.getSouthWest());
-  });
+        });
 
 
-      //Better to use angular-ui-bootstrap .
-      //But lets wait to be fully compatible with angular 1.3
-      //So hallo hallo $jquery, herzliche willkommen!
-      $scope.$on('$viewContentLoaded', function(){
-        $('#homeTab').tab('show');
-      });
-    }]);
+        //Better to use angular-ui-bootstrap .
+        //But lets wait to be fully compatible with angular 1.3
+        //So hallo hallo $jquery, herzliche willkommen!
+        $scope.$on('$viewContentLoaded', function(){
+          $('#homeTab').tab('show');
+        });
+      }
+    ]
+  );
 });

@@ -8,6 +8,10 @@ Playing around with Angular and Google Maps.
 
 # TODOS
 
+0. DEV ENVIRONMENT
+ * Editar jshintrc
+ * ~~Organizar angular module development~~
+
 1. CAJA DE BUSQUEDA
   * Dar estilo a la caja de Busqueda.
   * Posicionar por defecto en Barcelona
