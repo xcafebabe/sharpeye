@@ -9,15 +9,16 @@ Playing around with Angular and Google Maps.
 # TODOS
 
 0. DEV ENVIRONMENT
- * Editar jshintrc
+ * ~~Editar jshintrc~~
  * ~~Organizar angular module development~~
 
 1. CAJA DE BUSQUEDA
-  * Dar estilo a la caja de Busqueda.
-  * Posicionar por defecto en Barcelona
-  * Cuando se selecciona la ciudad, el zoom que no sea el maximo.
+  * ~~Dar estilo a la caja de Busqueda~~
+  * ~~Posicionar por defecto en Barcelona~~
+  * ~~Cuando se selecciona la ciudad, el zoom que no sea el maximo.~~
   * Limitar el trigger de busqueda a partir de cierto zoom in. No determinado aun.
-  * Refactorizar codigo. Encapsular codigo de GMaps en otro controlador/servicio.
+  * ~~Refactorizar codigo. Encapsular codigo de GMaps en otro controlador/servicio.~~
+  * Usar ng-Model en el searchbox.
 
 2. MARCADOR DE BUSQUEDA
   * Cambiar el icono del marcador  

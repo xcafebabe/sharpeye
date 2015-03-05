@@ -45,7 +45,8 @@ function (angular,$,Settings) {
    }]);
 
    module.run(['$templateCache', function ($templateCache) {
-     $templateCache.put('searchbox.tpl.html', '<input id="pac-input" class="pac-controls" type="text" placeholder="Search">');
+
+     $templateCache.put('searchbox.tpl.html', '<input type="text" class="form-control se-input-search" id="inputEmail" placeholder="Search">');
      $templateCache.put('window.tpl.html', '<div ng-controller="WindowCtrl" ng-init="showPlaceDetails(parameter)">{{place.name}}</div>');
    }]);
 

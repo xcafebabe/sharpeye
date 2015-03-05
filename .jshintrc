@@ -3,7 +3,7 @@
   "browser": true,
   "esnext": true,
   "bitwise": true,
-  "camelcase": true,
+  "camelcase": false,
   "curly": true,
   "eqeqeq": true,
   "immed": true,
@@ -25,6 +25,7 @@
     "ngRoutes": false,
     "ngSanitize": false,
     "ngCookies": false,
-    "ngResource": false
+    "ngResource": false,
+    "google": false
   }
 }
