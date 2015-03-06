@@ -33,7 +33,7 @@ function (angular,$,Settings) {
       $stateProvider
         .state('main', {
           url: '/',
-          templateUrl: 'scripts/search/views/main.html',
+          templateUrl: 'views/search/main.html',
           controller: 'MainController'
       });
 

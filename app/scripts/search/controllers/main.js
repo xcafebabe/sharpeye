@@ -47,7 +47,7 @@ function (angular,$, SearchModule) {
           //   templateurl:'window.tpl.html',
           //   templateparameter: {}
           // },
-          searchbox: {
+          searchbox: {            
             template:'searchbox.tpl.html',
             options: {
               autocomplete: true,
@@ -74,7 +74,8 @@ function (angular,$, SearchModule) {
                       visible:false
                     },
                     templateurl:'window.tpl.html',
-                    templateparameter: place
+                    templateparameter: place,
+                    icon: 'http://sharpeye.bytesauce.com/images/markers/star.png'
                   };
 
                   newMarkers.push(marker);
@@ -142,8 +143,7 @@ function (angular,$, SearchModule) {
                           function detailsresult(detailsResult, placesServiceStatus) {
                             // Here's the first result in the AutoComplete with the exact
                             // same data format as you get from the AutoComplete.
-                            $log.log('We selected the first item from the list automatically because the user didn\'t select anything');
-                            $log.log(detailsResult);
+                            $log.log('Selected first element ', detailsResult);
                             $timeout(function(){
                               $scope.map.center.latitude = detailsResult.geometry.location.lat();
                               $scope.map.center.longitude = detailsResult.geometry.location.lng();

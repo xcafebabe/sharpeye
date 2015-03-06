@@ -16,7 +16,7 @@ function (angular) {
       $stateProvider
         .state('about', {
           url: '/about',
-          templateUrl: 'scripts/content/views/about.html',
+          templateUrl: 'views/content/about.html',
           controller: 'AboutController'
         });
     }]);
