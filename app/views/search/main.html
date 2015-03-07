@@ -9,11 +9,11 @@
       <div class="tab-content">
         <div role="tabpanel" class="tab-pane active" id="home">Add config form
 
-          Latitude: {{map.center.latitude}}
-          Longitude: {{map.center.longitude}}
-          Zoom: {{map.zoom}}
+          Latitude: {{map.center.latitude}} <br />
+          Longitude: {{map.center.longitude}} <br />
+          Zoom: {{map.zoom}}<br />
           <br />
-          Search Box : {{searchbox.model}}
+          Search Box : {{searchbox.term}}<br />
 
         </div>
         <div role="tabpanel" class="tab-pane" id="result">No results :(</div>
@@ -28,13 +28,10 @@
                 events="searchbox.events" position="searchbox.position">
         </ui-gmap-search-box>
 
-        <ui-gmap-markers idkey="map.idkey" models="map.markers" coords="'self'" icon="'icon'"
-                         click="'onClicked'"></ui-gmap-markers>
-
-        <ui-gmap-window coords="selected" idkey="selected.place_id" templateurl="selected.templateurl"
-                        templateparameter="selected.templateparameter" options="selected.options"
-                        closeClick='selected.closeClick()' ng-cloak>
-        </ui-gmap-window>
+        <ui-gmap-markers idkey="map.markerId"
+                models="map.markers"
+                coords="'self'" icon="'icon'">
+        </ui-gmap-markers>
       </ui-gmap-google-map>
     </div>
   </div>

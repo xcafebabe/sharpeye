@@ -16,6 +16,8 @@ function (angular,$, SearchModule) {
       'uiGmapGoogleMapApi',
       'GoogleMapFactory',
       function ($scope,$log, $timeout, GoogleMapApi, GoogleMapFactory) {
+        $log.log("markers", GoogleMapFactory.default.markers);
+
         //Variable Initialization
         angular.extend($scope, {
           map: {
@@ -24,8 +26,8 @@ function (angular,$, SearchModule) {
             zoom: GoogleMapFactory.default.zoom,
             dragging: false,
             bounds: {},
-            markers: [],
-            idkey: 'place_id',
+            markers: GoogleMapFactory.default.markers,
+            markerId: 'place_id',
             events: {
               idle: function (map) {
 
@@ -37,6 +39,17 @@ function (angular,$, SearchModule) {
                 // var sw = bounds.getSouthWest();
                 // $scope.searchbox.options.bounds = new google.maps.LatLngBounds(sw, ne);
                 // //$scope.searchbox.options.visible = true;
+              },
+              click: function (mapModel, eventName, originalEventArgs) {
+                var e = originalEventArgs[0],
+                lat = e.latLng.lat(),
+
+                lon = e.latLng.lng();
+
+                $scope.map.markers[0].latitude = lat;
+                $scope.map.markers[0].longitude = lon;
+                //scope apply required because this event handler is outside of the angular domain
+                $scope.$apply();
               }
             }
           },
@@ -47,8 +60,9 @@ function (angular,$, SearchModule) {
           //   templateurl:'window.tpl.html',
           //   templateparameter: {}
           // },
-          searchbox: {            
-            template:'searchbox.tpl.html',
+          searchbox: {
+            term: GoogleMapFactory.default.searchTerm,
+            template:'views/search/searchbox.html',
             options: {
               autocomplete: true,
               types: ['(cities)'],
@@ -60,9 +74,8 @@ function (angular,$, SearchModule) {
                 var place = autocomplete.getPlace();
 
                 if (place.address_components) {
-
                   var newMarkers = [];
-                  var bounds = new google.maps.LatLngBounds();
+                  //var bounds = new google.maps.LatLngBounds();
 
                   var marker = {
                     id:place.place_id,
@@ -71,20 +84,23 @@ function (angular,$, SearchModule) {
                     latitude: place.geometry.location.lat(),
                     longitude: place.geometry.location.lng(),
                     options: {
-                      visible:false
+                      visible: true
                     },
-                    templateurl:'window.tpl.html',
-                    templateparameter: place,
+                    // templateurl:'window.tpl.html',
+                    // templateparameter: place,
                     icon: 'http://sharpeye.bytesauce.com/images/markers/star.png'
                   };
 
                   newMarkers.push(marker);
 
-                  bounds.extend(place.geometry.location);
+
 
                   $scope.map.center.latitude = place.geometry.location.lat();
                   $scope.map.center.longitude = place.geometry.location.lng();
                   $scope.map.zoom = GoogleMapFactory.default.zoom;
+
+
+                  //bounds.extend(place.geometry.location);
 
                   // $scope.map.bounds = {
                   //   northeast: {
@@ -97,13 +113,14 @@ function (angular,$, SearchModule) {
                   //   }
                   // };
 
-                  _.each(newMarkers, function(marker) {
+                  angular.forEach(newMarkers, function(marker) {
                     marker.closeClick = function() {
                       $scope.selected.options.visible = false;
                       marker.options.visble = false;
                       return $scope.$apply();
                     };
                     marker.onClicked = function() {
+                      $log.log("Se dispara el evento");
                       $scope.selected.options.visible = false;
                       $scope.selected = marker;
                       $scope.selected.options.visible = true;
@@ -160,23 +177,23 @@ function (angular,$, SearchModule) {
 
         GoogleMapApi.then(function(maps) {
           maps.visualRefresh = true;
-          $scope.defaultBounds = new google.maps.LatLngBounds(
-            new google.maps.LatLng(40.82148, -73.66450),
-            new google.maps.LatLng(40.66541, -74.31715)
-          );
-
-
-          $scope.map.bounds = {
-            northeast: {
-              latitude:$scope.defaultBounds.getNorthEast().lat(),
-              longitude:$scope.defaultBounds.getNorthEast().lng()
-            },
-            southwest: {
-              latitude:$scope.defaultBounds.getSouthWest().lat(),
-              longitude:-$scope.defaultBounds.getSouthWest().lng()
-            }
-          };
-          $scope.searchbox.options.bounds = new google.maps.LatLngBounds($scope.defaultBounds.getNorthEast(), $scope.defaultBounds.getSouthWest());
+          // $scope.defaultBounds = new google.maps.LatLngBounds(
+          //   new google.maps.LatLng(40.82148, -73.66450),
+          //   new google.maps.LatLng(40.66541, -74.31715)
+          // );
+          //
+          //
+          // $scope.map.bounds = {
+          //   northeast: {
+          //     latitude:$scope.defaultBounds.getNorthEast().lat(),
+          //     longitude:$scope.defaultBounds.getNorthEast().lng()
+          //   },
+          //   southwest: {
+          //     latitude:$scope.defaultBounds.getSouthWest().lat(),
+          //     longitude:-$scope.defaultBounds.getSouthWest().lng()
+          //   }
+          // };
+          // $scope.searchbox.options.bounds = new google.maps.LatLngBounds($scope.defaultBounds.getNorthEast(), $scope.defaultBounds.getSouthWest());
         });
 
 
