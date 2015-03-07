@@ -1,9 +1,13 @@
 <div class="se-container">
   <div class="row se-row">
     <div class="col-xs-4 se-column left" id="left">
+      <div class="clearfix se-message">
+        <i class="fa {{message.icon}}"> </i>
+        <span>{{message.value}}</span>
+      </div>
       <ul class="nav nav-tabs" role="tablist" id="sharpEyeTabs">
         <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab" id="homeTab"><i class="fa fa-cog"></i> Settings</a></li>
-        <li role="presentation"><a href="#result" aria-controls="result" role="tab" data-toggle="tab" id="resultTab">Result</a></li>
+        <li role="presentation"><a href="#result" aria-controls="result" role="tab" data-toggle="tab" id="resultTab"><i class="fa fa-list-ul"></i> Result</a></li>
       </ul>
 
       <div class="tab-content">
@@ -14,6 +18,8 @@
           Zoom: {{map.zoom}}<br />
           <br />
           Search Box : {{searchbox.term}}<br />
+
+          Cicle Center :  {{ map.circle.center }}
 
         </div>
         <div role="tabpanel" class="tab-pane" id="result">No results :(</div>
@@ -32,6 +38,17 @@
                 models="map.markers"
                 coords="'self'" icon="'icon'">
         </ui-gmap-markers>
+
+        <ui-gmap-circle center='map.circle.center'
+                        radius='map.circle.radius'
+                        fill='map.circle.fill'
+                        stroke='map.circle.stroke'
+                        clickable='map.circle.clickable'
+                        draggable='map.circle.draggable'
+                        editable='map.circle.editable'
+                        visible='map.circle.visible'
+                        events='map.circle.events'>
+        </ui-gmap-circle>
       </ui-gmap-google-map>
     </div>
   </div>

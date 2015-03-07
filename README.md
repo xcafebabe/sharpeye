@@ -10,7 +10,7 @@ Playing around with Angular and Google Maps.
 0. DEV ENVIRONMENT
  * ~~Editar jshintrc~~
  * ~~Organizar angular module development~~
- * Revisar el error relacionado con main.css.ma
+ * Revisar el error relacionado con main.css.map
  * Como desactivar $log en produccion.
 
 1. CAJA DE BUSQUEDA
@@ -23,7 +23,7 @@ Playing around with Angular and Google Maps.
 2. MARCADOR DE BUSQUEDA
   * ~~Cambiar el icono del marcador~~
   * ~~Permitir drag del marcador para cambiar la posicion~~. NO SE IMPLEMENTA
-  * ~~Permitir click en el map para movel este marcado de posicion.~~  
+  * ~~Permitir click en el map para cambiar de posicion el marcador.~~  
 
 3. RADIO DE BUSQUEDA
   * Permitir radio de busqueda. Habilitar con una slider la opcion
@@ -52,8 +52,8 @@ Playing around with Angular and Google Maps.
 
 7. CONTACTAR IDEALISTA
   * Esperar por tokenApi ...
-  * Hacer ajustes de la herramienta para adaptar
-  * Poner un mensajito. Powered by Idealista.
+  * Hacer adaptaciones
+  * Poner un mensajito. Search powered by Idealista.
 
 8. SERVICIO LOCALSTORAGE
   * Guardar preferencias.
