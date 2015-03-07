@@ -11,15 +11,78 @@
       </ul>
 
       <div class="tab-content">
-        <div role="tabpanel" class="tab-pane active" id="home">Add config form
+        <div role="tabpanel" class="tab-pane active" id="home">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="well bs-component">
+                <form class="form-horizontal">
+                  <fieldset>
+                    <legend>Map</legend>
+                    <div class="form-group">
+                      <label for="inputSearchRadio" class="col-md-3 control-label">Search radio</label>
+                      <div class="col-md-9">
+                        <input type="text" class="form-control" id="inputSearchRadio" data-ion-slider
+                        data-min="0" data-max="100" data-grid="true" data-grid-num="10">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="" class="col-md-3 control-label" >Visible radar</label>
+                      <div class="col-md-9">
+                        <div class="onoffswitch">
+                          <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch">
+                          <label class="onoffswitch-label" for="myonoffswitch">
+                            <span class="onoffswitch-inner">
+                              <span class="onoffswitch-active"><span class="onoffswitch-switch">ON</span></span>
+                              <span class="onoffswitch-inactive"><span class="onoffswitch-switch">OFF</span></span>
+                            </span>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </fieldset>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="well">
+                <form class="form-horizontal">
+                  <fieldset>
+                    <legend>Filter</legend>
+                    <div class="form-group">
+                      <label for="inputSearchRadio" class="col-md-3 control-label">House Type</label>
+                      <div class="col-md-9">
+                        <ui-select multiple ng-model="multipleDemo.colors" theme="select2" ng-disabled="disabled" style="width: 300px;">
+                          <ui-select-match placeholder="Select colors...">{{$item}}</ui-select-match>
+                          <ui-select-choices repeat="color in availableColors | filter:$select.search">
+                            {{color}}
+                          </ui-select-choices>
+                        </ui-select>
+                        <p>Selected: {{multipleDemo.colors}}</p>
+                      </div>
+                    </div>
 
-          Latitude: {{map.center.latitude}} <br />
-          Longitude: {{map.center.longitude}} <br />
-          Zoom: {{map.zoom}}<br />
-          <br />
-          Search Box : {{searchbox.term}}<br />
+                  </fieldset>
+                </form>
+              </div>
+            </div>
+          </div>
 
-          Cicle Center :  {{ map.circle.center }}
+          <div>
+            Latitude: {{map.center.latitude}} <br />
+            Longitude: {{map.center.longitude}} <br />
+            Zoom: {{map.zoom}}<br />
+            <br />
+            Search Box : {{searchbox.term}}<br />
+
+
+
+          </div>
+
+
+
+
 
         </div>
         <div role="tabpanel" class="tab-pane" id="result">No results :(</div>

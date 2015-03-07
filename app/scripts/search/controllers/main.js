@@ -18,6 +18,10 @@ function (angular,$, SearchModule) {
       function ($scope,$log, $timeout, GoogleMapApi, GoogleMapFactory) {
         $log.log("markers", GoogleMapFactory.default.markers);
 
+        $scope.availableColors = ['Red','Green','Blue','Yellow','Magenta','Maroon','Umbra','Turquoise'];
+        $scope.multipleDemo = {};
+        $scope.multipleDemo.colors = ['Blue','Red'];
+
         //Variable Initialization
         angular.extend($scope, {
           map: {

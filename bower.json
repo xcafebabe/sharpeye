@@ -18,7 +18,10 @@
     "domReady": "^2.0.0",
     "text": "^2.0.0",
     "jquery": "^2.1.0",
-    "lodash" : "^2.4.0"
+    "lodash" : "^2.4.0",
+    "ion.rangeSlider" : "^2.0.6",
+    "ui-select" : "git@github.com:angular-ui/ui-select.git",
+    "select2" : "git@github.com:select2/select2.git"
   },
   "devDependencies": {
     "angular-mocks": "^1.3.0"

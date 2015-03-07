@@ -8,6 +8,7 @@ define([
   'angular-animate',
   'angular-touch',
   'angular-messages',
+  'angular-ui-select',
   'includes' ],
 function (angular){
   'use strict';
@@ -33,5 +34,6 @@ function (angular){
       'ui.router',
       'ngAnimate',
       'ngTouch',
+      'ui.select'
     ]);
 });

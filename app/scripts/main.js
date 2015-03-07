@@ -15,10 +15,12 @@ require.config({
     'bootstrap' : '../../bower_components/bootstrap/dist/js/bootstrap',
     'jquery' : '../../bower_components/jquery/dist/jquery',
     'domReady' : '../../bower_components/domReady/domReady',
-    'text' : '../../bower_components/text/text'
+    'text' : '../../bower_components/text/text',
+    'ionRangeSlider' : '../../bower_components/ion.rangeSlider/js/ion.rangeSlider.min',
+    'angular-ui-select': '../../bower_components/ui-select/dist/select.min'
   },
   shim: {
-    'angular' : {'exports' : 'angular'},
+    'angular' : {'exports' : 'angular', deps: ['jquery']},
     'angular-ui-router' : ['angular'],
     'angular-cookies': ['angular'],
     'angular-sanitize': ['angular'],
@@ -27,7 +29,9 @@ require.config({
     'angular-touch': ['angular'],
     'angular-messages' : ['angular'],
     'bootstrap' : ['jquery'],
+    'ionRangeSlider' :  ['jquery'],
     'angular-google-maps' : ['angular','lodash'],
+    'angular-ui-select' : ['angular'],
     'angular-mocks': {
       deps:['angular'],
       'exports':'angular.mock'
