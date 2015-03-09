@@ -1,6 +1,33 @@
-<div class="se-container">
-  <div class="row se-row">
-    <div class="col-xs-4 se-column left" id="left">
+<div class="se-canvas">
+  <ui-gmap-google-map center="map.center" zoom="map.zoom" dragging="map.dragging"
+          bounds="map.bounds" events="map.events" options="map.options"
+          pan="true" control="map.control">
+    <!--to add as a map control -->
+    <ui-gmap-search-box options="searchbox.options" template="searchbox.template"
+            events="searchbox.events" position="searchbox.position">
+    </ui-gmap-search-box>
+
+    <ui-gmap-markers idkey="map.markerId"
+            models="map.markers"
+            coords="'self'" icon="'icon'">
+    </ui-gmap-markers>
+
+    <ui-gmap-circle center='map.circle.center'
+                    radius='map.circle.radius'
+                    fill='map.circle.fill'
+                    stroke='map.circle.stroke'
+                    clickable='map.circle.clickable'
+                    draggable='map.circle.draggable'
+                    editable='map.circle.editable'
+                    visible='map.circle.visible'
+                    events='map.circle.events'>
+    </ui-gmap-circle>
+  </ui-gmap-google-map>
+</div>
+
+<div class="container-fluid" id="main">
+  <div class="row">
+    <div class="col-md-4 se-column left" id="left">
       <div class="clearfix se-message">
         <i class="fa {{message.icon}}"> </i>
         <span>{{message.value}}</span>
@@ -14,7 +41,7 @@
         <div role="tabpanel" class="tab-pane active" id="home">
           <div class="row">
             <div class="col-md-12">
-              <div class="well bs-component">
+              <div class="well first">
                 <form class="form-horizontal">
                   <fieldset>
                     <legend>Map</legend>
@@ -75,6 +102,33 @@
             Zoom: {{map.zoom}}<br />
             <br />
             Search Box : {{searchbox.term}}<br />
+            <span>lalal</span><br />
+            <span>lalal</span><br />
+            <span>lalal</span><br />
+            <span>lalal</span><br />
+            <span>lalal</span><br />
+            <span>lalal</span><br />
+            <span>lalal</span><br />
+            <span>lalal</span><br />
+            <span>lalal</span><br />
+            <span>lalal</span><br />
+            <span>lalal</span><br />
+            <span>lalal</span><br />
+            <span>lalal</span><br />
+            <span>lalal</span><br />
+            <span>lalal</span><br />
+            <span>lalal</span><br />
+            <span>lalal</span><br />
+            <span>lalal</span><br />
+            <span>lalal</span><br />
+            <span>lalal</span><br />
+            <span>lalal</span><br />
+            <span>lalal</span><br />
+            <span>lalal</span><br />
+            <span>lalal</span><br />
+            <span>lalal</span><br />
+
+
 
 
 
@@ -88,31 +142,7 @@
         <div role="tabpanel" class="tab-pane" id="result">No results :(</div>
       </div>
     </div>
-    <div class="col-xs-8 se-column right">
-      <ui-gmap-google-map center="map.center" zoom="map.zoom" dragging="map.dragging"
-              bounds="map.bounds" events="map.events" options="map.options"
-              pan="true" control="map.control">
-        <!--to add as a map control -->
-        <ui-gmap-search-box options="searchbox.options" template="searchbox.template"
-                events="searchbox.events" position="searchbox.position">
-        </ui-gmap-search-box>
-
-        <ui-gmap-markers idkey="map.markerId"
-                models="map.markers"
-                coords="'self'" icon="'icon'">
-        </ui-gmap-markers>
-
-        <ui-gmap-circle center='map.circle.center'
-                        radius='map.circle.radius'
-                        fill='map.circle.fill'
-                        stroke='map.circle.stroke'
-                        clickable='map.circle.clickable'
-                        draggable='map.circle.draggable'
-                        editable='map.circle.editable'
-                        visible='map.circle.visible'
-                        events='map.circle.events'>
-        </ui-gmap-circle>
-      </ui-gmap-google-map>
+    <div class="col-md-8" id="right">
     </div>
   </div>
 </div>

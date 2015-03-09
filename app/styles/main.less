@@ -14,7 +14,7 @@
 }
 
 body {
-  padding: 0;
+  padding-top: 62px;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -74,29 +74,47 @@ body {
     height: 100%;
   }
 
+  #main, #main>.row {
+  	height:100%;
+  }
+
+  #main>.row {
+      overflow-y:scroll;
+  }
+
+  .se-canvas {
+  	width:66.6666%;
+    position: absolute;
+    right: 13px;
+    top: 63px;
+    bottom:0;
+    overflow: hidden;
+  }
+
+
+  .se-column {
+    -webkit-transition: width 0.3s ease, margin 0.3s ease;
+    -moz-transition: width 0.3s ease, margin 0.3s ease;
+    -o-transition: width 0.3s ease, margin 0.3s ease;
+    transition: width 0.3s ease, margin 0.3s ease;
+
+    &.left {
+      padding-top: 16px;
+    }
+  }
+
+  .tab-content {
+    padding-top: 19px;
+  }
+
   .se-container {
-    display: table;
+    overflow: hidden;
     height: 100%;
-    padding-top: 62px;
-    width: 100%;
 
     .se-message {
       text-align: right;
       float: right;
       margin-top: 13px;
-    }
-
-    .se-row {
-      display: table-row;
-
-      .se-column {
-        float: none;
-        display: table-cell;
-
-        &.left {
-          padding-top: 16px;
-        }
-      }
     }
   }
 

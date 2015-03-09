@@ -26,9 +26,11 @@ Playing around with Angular and Google Maps.
   * ~~Permitir click en el map para cambiar de posicion el marcador.~~  
 
 3. RADIO DE BUSQUEDA
-  * Permitir radio de busqueda. Habilitar con una slider la opcion
-  de pintar radio de busqueda en el mapa.  
-  * Agregar slider ionRangeSlider - Usar/Crear directive
+  * ~~Permitir radio de busqueda. ~~
+  * Boton para habilitar/deshabilitar la circunferencia.  
+  * Habilitar con una slider la opcion de pintar radio de busqueda en el mapa.  
+  * El slider sera de 250m 500m 1km
+  * ~~Agregar slider ionRangeSlider - Usar/Crear directive~~
   * Permitir a traves de slider/input el incremento/decremento del radio de busqueda.
   * Permitir a traves del radio de busqueda la actualizacion del slider.
 

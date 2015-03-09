@@ -1,0 +1,141 @@
+TODAY TODOS
+/ issue-498-marker-move-loaded / issue-663-marker-events-once / issue-654-marker-events-break-after-added / issue-772-info-window-show-state
+
+
+Request to Idealista
+http://www.idealista.com/labs/propertyMap.htm?action=json
+&k = {api key}
+(required) api key for your domain
+&operation	= {rent,sale}
+(required)
+&center = latitude, longitude
+(required) center coordinates
+&radio = latitude, longitude | &distance = {0..n}
+(required) you must to send one of these. a radio's coordinate or the distance in metres
+&numPage = {0..n}
+(optional) page number
+&minPrice = {0..n}
+(optional) lower price in euros
+&maxPrice = {0...n}
+(optional) upper price in euros
+&minSize = {0..n}
+(optional) lower size in square meters
+&maxSize = {0..n}
+(optional) upper size in square meters
+&flat = {true,false}
+(optional) true to get flats
+&penthouse = {true,false}
+(optional) true to get penthouse
+&studio = {true,false}
+(optional) true to get studios
+&chalet = {true,false}
+(optional) true to get chalets
+&duplex = {true,false}
+(optional) true to get duplexes
+&garage = {true,false}
+(optional) true to get garages
+&premises = {true,false}
+(optional) true to get premises
+&office = {true,false}
+(optional) true to get office
+&room = {true,false}
+(optional) true to get rooms in shared flats
+&minRooms = {1,2,3,4,5}
+(optional) >= 1 room, >= 2 rooms ...
+&since = {a,m,w}
+(optional) a - all properties, m - last month, w - last week
+&pics = 1
+(optional) pics=1 to get only listings with images
+
+
+Response
+
+["pisos, áticos, estudios, dúplex, casas o chalets, de todos los precios, de todos los tamaños, con 0 dormitorios o más",
+	{
+	  "total" : 1,
+	  "elementList":[
+	            { "abrAddress" : "cervantes, 36",
+		          "address" : "cervantes, 36",
+		          "agency" : true,
+		          "agentLogo" : "www.idealista.com/publicidad/P00015394.gif",
+		          "bathrooms" : 0,
+		          "condition" : "obra nueva",
+		          "country" : "es",
+		          "distance" : "157",
+		          "district" : "centro",
+		          "floor" : "1",
+		          "hasVideo": true,
+		          "latitude" : "40.41434538463186",
+		          "longitude" : "-3.6960349989143246",
+		          "munipality" : "madrid",
+		          "neighborhood" : "cortes",
+		          "numPhotos" : 8,
+		          "operation" : "V",
+		          "photosUrl" : "www.idealista.com/pagina/inmueble?secc_inm=fotos%26codigoinmueble=VP0000002400846",
+		          "position" : "",
+		          "price" : 328000,
+		          "propertyCode" : "VP0000002400846",
+		          "propertyType" : "piso",
+		          "propertyTypeCode" : "VP",
+		          "province" : "madrid",
+		          "region" : "madrid capital",
+		          "rooms" : 1,
+		          "showAddress" : true,
+		          "size" : 51,
+		          "subregion" : "madrid capital",
+		          "thumbnail" : "http://www.idealista.com/fotos/promo/2009/04/01/s_ON_1238163697892.png",
+		          "url" : "www.idealista.com/VP0000002400846",
+		          "userCode" : "P00015394",
+		          "videoType":"P"
+		        }
+
+		        ],
+
+	    "actualPage" : 1,
+	    "totalPages" : 1,
+	    "itemsPerPage" : 20
+	},
+	{ "latitude" : 40.415914000000001,
+    "longitude" : -3.696148
+  } // center
+]
+
+
+json fields for a single property:
+address:property address can be a real address or a zone name
+photosUrl:link to www.idealista.com/ property photos tab
+distance:distance from center or address (metres)
+address: property address can be a real address or a zone name
+agency: true if the property was published by a real estate agency
+agentLogo: url to real estate agency logo if proceed
+bathrooms: number of bathrooms
+condition: property condition
+country: es, it, pt...
+distance: distance to center
+district: string
+floor: string
+hasVideo: true or false
+latitude: coordinate
+longitude: coordinate
+munipality: string
+neighborhood: string
+numPhotos: number of images
+operation: rent or sale
+photosUrl: url to property detail
+position: exterior, interior
+price: euros
+propertyCode: idealista code
+propertyType: flat, chalet, duplex...
+province: string
+region: string
+rooms: number of rooms
+showAddress: true if the real estate agent or owner want to show the property address
+size: square meters
+subregion: string
+thumbnail: property thumbnail url
+url: link to www.idealista.com/ detail
+userCode: idealista user code
+videoType: the most important video type it contents: p(performed video), i(idealista video) or f(no video)
+actualPage:page selected
+totalPages:total pages
+itemsPerPage:number of properties per page

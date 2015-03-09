@@ -238,6 +238,11 @@ function (angular,$, SearchModule) {
         //So hallo hallo $jquery, herzliche willkommen!
         $scope.$on('$viewContentLoaded', function(){
           $('#homeTab').tab('show');
+
+          $('#trig').on('click', function () {
+            $('#left').toggleClass('span0 col-md-4');
+            $('#right').toggleClass('col-md-12 col-md-8');
+          });
         });
 
         $scope.$watch('map.zoom', function(newValue, oldValue){
