@@ -20,7 +20,8 @@
                     draggable='map.circle.draggable'
                     editable='map.circle.editable'
                     visible='map.circle.visible'
-                    events='map.circle.events'>
+                    events='map.circle.events'
+                    control='map.circle.control'>
     </ui-gmap-circle>
   </ui-gmap-google-map>
 </div>
@@ -33,12 +34,107 @@
         <span>{{message.value}}</span>
       </div>
       <ul class="nav nav-tabs" role="tablist" id="sharpEyeTabs">
-        <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab" id="homeTab"><i class="fa fa-cog"></i> Settings</a></li>
+        <li role="presentation" class="active"><a href="#filter" aria-controls="filter" role="tab" data-toggle="tab" id="filterTab"><i class="fa fa-filter"></i> Filter</a></li>
         <li role="presentation"><a href="#result" aria-controls="result" role="tab" data-toggle="tab" id="resultTab"><i class="fa fa-list-ul"></i> Result</a></li>
+        <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab" id="settingsTab"><i class="fa fa-cog"></i> Settings</a></li>
       </ul>
 
       <div class="tab-content">
-        <div role="tabpanel" class="tab-pane active" id="home">
+        <div role="tabpanel" class="tab-pane active" id="filter">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="well first">
+                <form class="form-horizontal">
+                  <fieldset>
+                    <legend>Filter</legend>
+                    <div class="form-group">
+                      <label for="inputSearchRadio" class="col-md-3 control-label">Searching for</label>
+                      <div class="col-md-9">
+                        <input type="text" class="form-control" id="inputSearchRadio" data-ion-slider
+                        data-min="0" data-max="100" data-grid="true" data-grid-num="10">
+                        <!--
+                        Tipo de Vivienda
+                        Select Multiple
+                        Pisos, Duplex, Atico, Casas o Chalets, Casas Rusticas
+                        -->
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="inputSearchRadio" class="col-md-3 control-label">Bedrooms</label>
+                      <div class="col-md-9">
+                        <input type="text" class="form-control" id="inputSearchRadio" data-ion-slider
+                        data-min="0" data-max="100" data-grid="true" data-grid-num="10">
+                      </div>
+                      <!-- Habitaciones
+                      Slider
+                      Atras y adelante
+                      0,1,2,3,4 -->
+                    </div>
+                    <div class="form-group">
+                      <label for="inputSearchRadio" class="col-md-3 control-label">Bathrooms</label>
+                      <div class="col-md-9">
+                        <input type="text" class="form-control" id="inputSearchRadio" data-ion-slider
+                        data-min="0" data-max="100" data-grid="true" data-grid-num="10">
+                      </div>
+                      <!-- Banos
+                      Slider
+                      Atras y Adelante
+                      1,2,3+ -->
+
+                    </div>
+                    <div class="form-group">
+                      <label for="inputSearchRadio" class="col-md-3 control-label">Size</label>
+                      <div class="col-md-9">
+                        <input type="text" class="form-control" id="inputSearchRadio" data-ion-slider
+                        data-min="0" data-max="100" data-grid="true" data-grid-num="10">
+                      </div>
+                      <!-- Tamano
+                      0 40, 60, 80, 100, 120, 140, 180, 200, 400, 600, 700, 800,900 infinot -->
+
+                    </div>
+                    <div class="form-group">
+                      <label for="inputSearchRadio" class="col-md-3 control-label">Condition</label>
+                      <div class="col-md-9">
+                        <ui-select ng-model="multipleDemo.colors" theme="select2" ng-disabled="disabled" style="width: 300px;">
+                          <ui-select-match placeholder="Select colors...">{{$item}}</ui-select-match>
+                          <ui-select-choices repeat="color in availableColors | filter:$select.search">
+                            {{color}}
+                          </ui-select-choices>
+                        </ui-select>
+                        <p>Selected: {{multipleDemo.colors}}</p>
+                        <!-- Estado
+                        Select Simple
+                        Indiferente
+                        Para reformar
+                        Buen Estado -->
+
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="inputSearchRadio" class="col-md-3 control-label">Extras</label>
+                      <div class="col-md-9">
+                        <ui-select ng-model="multipleDemo.colors" theme="select2" ng-disabled="disabled" style="width: 300px;">
+                          <ui-select-match placeholder="Select colors...">{{$item}}</ui-select-match>
+                          <ui-select-choices repeat="color in availableColors | filter:$select.search">
+                            {{color}}
+                          </ui-select-choices>
+                        </ui-select>
+                        <p>Selected: {{multipleDemo.colors}}</p>
+                      </div>
+                      <!-- Caracteristicas
+                      Ascensor, Garake, Piscina, Terraza, Exterior, De bancos y cajas,
+                      obra nueva, trastero, aire acondicionado, armarios empotrados
+
+                      fotos, video profesional, visita virtual. -->
+                    </div>
+                  </fieldset>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="result">No results :(</div>
+        <div role="tabpanel" class="tab-pane" id="settings">
           <div class="row">
             <div class="col-md-12">
               <div class="well first">
@@ -66,80 +162,17 @@
                         </div>
                       </div>
                     </div>
-                  </fieldset>
-                </form>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-12">
-              <div class="well">
-                <form class="form-horizontal">
-                  <fieldset>
-                    <legend>Filter</legend>
                     <div class="form-group">
-                      <label for="inputSearchRadio" class="col-md-3 control-label">House Type</label>
-                      <div class="col-md-9">
-                        <ui-select multiple ng-model="multipleDemo.colors" theme="select2" ng-disabled="disabled" style="width: 300px;">
-                          <ui-select-match placeholder="Select colors...">{{$item}}</ui-select-match>
-                          <ui-select-choices repeat="color in availableColors | filter:$select.search">
-                            {{color}}
-                          </ui-select-choices>
-                        </ui-select>
-                        <p>Selected: {{multipleDemo.colors}}</p>
+                      <div class="col-md-12">
+                        <a href="#" class="btn btn-default">Default</a>
                       </div>
                     </div>
-
                   </fieldset>
                 </form>
               </div>
             </div>
           </div>
-
-          <div>
-            Latitude: {{map.center.latitude}} <br />
-            Longitude: {{map.center.longitude}} <br />
-            Zoom: {{map.zoom}}<br />
-            <br />
-            Search Box : {{searchbox.term}}<br />
-            <span>lalal</span><br />
-            <span>lalal</span><br />
-            <span>lalal</span><br />
-            <span>lalal</span><br />
-            <span>lalal</span><br />
-            <span>lalal</span><br />
-            <span>lalal</span><br />
-            <span>lalal</span><br />
-            <span>lalal</span><br />
-            <span>lalal</span><br />
-            <span>lalal</span><br />
-            <span>lalal</span><br />
-            <span>lalal</span><br />
-            <span>lalal</span><br />
-            <span>lalal</span><br />
-            <span>lalal</span><br />
-            <span>lalal</span><br />
-            <span>lalal</span><br />
-            <span>lalal</span><br />
-            <span>lalal</span><br />
-            <span>lalal</span><br />
-            <span>lalal</span><br />
-            <span>lalal</span><br />
-            <span>lalal</span><br />
-            <span>lalal</span><br />
-
-
-
-
-
-          </div>
-
-
-
-
-
         </div>
-        <div role="tabpanel" class="tab-pane" id="result">No results :(</div>
       </div>
     </div>
     <div class="col-md-8" id="right">

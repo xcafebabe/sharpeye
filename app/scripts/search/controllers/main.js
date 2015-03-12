@@ -45,11 +45,13 @@ function (angular,$, SearchModule) {
                 color: '#08B21F',
                 opacity: 0.1
               },
-              geodesic: false, // optional: defaults to false
-              draggable: false, // optional: defaults to false
-              clickable: false, // optional: defaults to true
-              editable: false, // optional: defaults to false
-              visible: true, // optional: defaults to true
+              geodesic: true, // optional: defaults to false
+           draggable: true, // optional: defaults to false
+           clickable: true, // optional: defaults to true
+           editable: true, // optional: defaults to false
+           visible: true, // optional: defaults to true
+           control: {},
+
               events:{
                 dblclick: function(){
                   $log.debug("circle dblclick");
@@ -238,11 +240,6 @@ function (angular,$, SearchModule) {
         //So hallo hallo $jquery, herzliche willkommen!
         $scope.$on('$viewContentLoaded', function(){
           $('#homeTab').tab('show');
-
-          $('#trig').on('click', function () {
-            $('#left').toggleClass('span0 col-md-4');
-            $('#right').toggleClass('col-md-12 col-md-8');
-          });
         });
 
         $scope.$watch('map.zoom', function(newValue, oldValue){
